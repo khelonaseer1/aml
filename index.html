@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فريق فكرة أمل التطوعي</title>
+    <!-- استدعاء خط "تجوال" وهو خط عربي عصري ومقروء جداً -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- الأساسيات --- */
+        :root {
+            --primary-color: #ffffff;
+            --accent-color: #ffd700; /* لون ذهبي للمسات الفنية */
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            height: 100vh;
+            overflow: hidden; /* لمنع ظهور شريط التمرير */
+            background-color: #1a1a1a;
+        }
+
+        /* --- خلفية الشاشة --- */
+        .background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            
+            /* --- تغيير الصورة --- */
+            /* 1. ابحث عن الرابط أدناه */
+            /* 2. استبدله بـ: url('images/1')  */
+            /* ملاحظة: تأكد من امتداد الصورة (jpg, png) */
+            background-image: url('https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=2070&auto=format&fit=crop');
+            
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.6); /* تغميق الصورة قليلاً لإبراز النص */
+            transform: scale(1.05); /* زووم خفيف */
+            animation: slowZoom 20s infinite alternate; /* حركة بطيئة للصورة */
+        }
+
+        /* --- الحاوية الرئيسية (Flexbox) --- */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            padding: 20px;
+        }
+
+        /* --- بطاقة الزجاج (Glass Card) --- */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px); /* تأثير الضباب */
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 60px 40px;
+            text-align: center;
+            color: var(--primary-color);
+            max-width: 700px;
+            width: 100%;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            
+            /* أنيميشن الظهور */
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        /* --- المحتويات --- */
+        .icon-container {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        /* الخط الفاصل الجمالي */
+        .divider {
+            height: 2px;
+            width: 60px;
+            background: var(--accent-color);
+            margin: 0 auto 30px auto;
+            border-radius: 2px;
+        }
+
+        .location-info {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 25px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .location-info:hover {
+            transform: scale(1.05);
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- الفوتر --- */
+        footer {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+            font-weight: 300;
+            width: 100%;
+        }
+
+        /* --- الحركات (Animations) --- */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        /* --- التجاوب مع الموبايل --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .glass-card { padding: 40px 20px; }
+            .subtitle { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الخلفية -->
+    <div class="background-container"></div>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="main-container">
+        <div class="glass-card">
+            <!-- أيقونة تعبر عن الأمل -->
+            <div class="icon-container">
+                <i class="fa-solid fa-hands-holding-circle"></i>
+            </div>
+
+            <!-- اسم الفريق -->
+            <h1>فريق فكرة أمل التطوعي</h1>
+            
+            <!-- الشعار اللفظي -->
+            <p class="subtitle">حيث تلتقي الإرادة بصناعة الأثر</p>
+
+            <!-- خط فاصل -->
+            <div class="divider"></div>
+
+            <!-- الموقع -->
+            <div class="location-info">
+                <i class="fas fa-map-marker-alt" style="color: #ffd700;"></i>
+                <span>عمان، الأردن</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- الحقوق -->
+    <footer>
+        <p>جميع الحقوق محفوظة © 2026 فريق فكرة أمل التطوعي</p>
+    </footer>
+
+</body>
+</html>
